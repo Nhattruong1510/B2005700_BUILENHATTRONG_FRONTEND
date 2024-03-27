@@ -11,7 +11,7 @@
             <ContactList v-if="filteredContactsCount > 0" :contacts="filteredContacts"
                 v-model:activeIndex="activeIndex" />
             <p v-else>Không có liên hệ nào</p>
-            <div class="mt-3 row justify-content-around align-itmes-center">
+            <div class="mt-3 row justify-content-around align-items-center">
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
@@ -77,9 +77,9 @@ export default {
         },
         filteredContacts() {
             if (!this.searchText) return this.contacts;
-            return this.contacts.filter((_contact, index) => {
+            return this.contacts.filter((_contact, index) => 
                 this.contactStrings[index].includes(this.searchText)
-            });
+            );
         },
         activeContact() {
             if (this.activeIndex < 0) return null;
